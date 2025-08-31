@@ -39,9 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'household_size' => $_POST['household_size'],
             'purok_id' => $_POST['purok_id'],
             'submitted_at' => date('Y-m-d H:i:s'),
-            'birthdate' => $birthdate,
-            'created_at' => date('Y-m-d H:i:s'),
-            // Predictive event alignment questions
             'sports_interest' => $_POST['sports_interest'] ?? 'No',
             'health_interest' => $_POST['health_interest'] ?? 'No',
             'nutrition_interest' => $_POST['nutrition_interest'] ?? 'No',
@@ -87,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([
                 'first_name' => $census_data['first_name'],
                 'last_name' => $census_data['last_name'],
-                'birthdate' => $census_data['birthdate'],
+                'birthdate' => $birthdate,
                 'gender' => $census_data['gender'],
                 'civil_status' => $census_data['civil_status'],
                 'address' => $census_data['address'],
@@ -97,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'monthly_income' => $census_data['monthly_income'],
                 'household_size' => $census_data['household_size'],
                 'purok_id' => $census_data['purok_id'],
-                'created_at' => $census_data['created_at']
+                'created_at' => date('Y-m-d H:i:s')
             ]);
 
             $conn->commit();
@@ -355,11 +352,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="purok_id">Purok</label>
                     <select id="purok_id" name="purok_id" required>
                         <option value="">Select Purok</option>
-                        <?php foreach ($puroks as $purok): ?>
-                            <option value="<?php echo $purok['purok_id']; ?>">
-                                <?php echo htmlspecialchars($purok['purok_name']); ?>
-                            </option>
-                        <?php endforeach; ?>
+                        <?php for ($i = 1; $i <= 7; $i++): ?>
+                            <option value="<?php echo $i; ?>">Purok <?php echo $i; ?></option>
+                        <?php endfor; ?>
                     </select>
                 </div>
             </div>
