@@ -1,0 +1,958 @@
+[17-Jul-2025 18:39:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getResidentsList() in C:\xampp\htdocs\barangay\dashboard.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\barangay\dashboard.php on line 25
+[17-Jul-2025 18:39:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getResidentsList() in C:\xampp\htdocs\barangay\dashboard.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\barangay\dashboard.php on line 25
+[17-Jul-2025 18:39:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getResidentsList() in C:\xampp\htdocs\barangay\dashboard.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\barangay\dashboard.php on line 25
+[17-Jul-2025 18:39:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getResidentsList() in C:\xampp\htdocs\barangay\dashboard.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\barangay\dashboard.php on line 25
+[17-Jul-2025 18:39:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getResidentsList() in C:\xampp\htdocs\barangay\dashboard.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\barangay\dashboard.php on line 25
+[19-Jul-2025 11:27:28 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:30 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:30 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:30 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:30 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:30 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:31 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:45 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:51 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:52 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:27:52 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:28:03 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:28:03 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:28:04 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[19-Jul-2025 11:28:04 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\resident.php:39
+Stack trace:
+#0 C:\xampp\htdocs\barangay\resident.php(39): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\resident.php on line 39
+[23-Jul-2025 15:19:46 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[23-Jul-2025 15:20:51 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[23-Jul-2025 15:20:51 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[23-Jul-2025 15:20:51 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[23-Jul-2025 15:20:51 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[23-Jul-2025 15:20:52 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[23-Jul-2025 15:20:52 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[23-Jul-2025 15:20:52 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[23-Jul-2025 15:20:56 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'monthly_income' in 'field list' in C:\xampp\htdocs\barangay\analytics.php:91
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(91): mysqli->prepare('SELECT \r\n      ...')
+#1 C:\xampp\htdocs\barangay\analytics.php(114): getAnalyticsData(NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 91
+[25-Jul-2025 16:38:23 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'event_id' in 'field list' in C:\xampp\htdocs\barangay\predictive.php:18
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(18): mysqli->query('SELECT event_id...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 18
+[25-Jul-2025 16:39:03 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'event_id' in 'field list' in C:\xampp\htdocs\barangay\predictive.php:18
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(18): mysqli->query('SELECT event_id...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 18
+[25-Jul-2025 16:42:31 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:34 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:38 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:38 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:38 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:39 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:40 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:40 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:40 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[25-Jul-2025 16:43:41 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "event_id" in C:\xampp\htdocs\barangay\predictive.php:112
+Stack trace:
+#0 C:\xampp\htdocs\barangay\predictive.php(112): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 112)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\predictive.php on line 112
+[02-Aug-2025 17:12:22 Europe/Berlin] Would send to Census API: Array
+(
+    [vintage] => 2022
+    [dataset] => ecnbasic
+    [values] => Array
+        (
+            [FIRST_NAME] => asda
+            [LAST_NAME] => adada
+            [AGE] => 3
+            [GENDER] => Male
+            [HOUSEHOLD_SIZE] => 1
+            [INCOME] => 1000
+            [EDUCATION] => High School
+            [EMPLOYMENT] => Student
+            [LOCATION] => Purok 1 jadhlalajdkljad
+        )
+
+)
+
+[02-Aug-2025 17:36:06 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:36:41 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:37:01 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:37:01 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:37:01 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:37:01 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:37:02 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:37:41 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:38:31 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:38:41 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:39:35 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:39:52 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:40:55 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[02-Aug-2025 17:40:57 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[03-Aug-2025 16:28:10 Europe/Berlin] Would send to Census API: Array
+(
+    [vintage] => 2022
+    [dataset] => ecnbasic
+    [values] => Array
+        (
+            [FIRST_NAME] => Marlon
+            [LAST_NAME] => inocencio
+            [AGE] => 49
+            [GENDER] => Male
+            [HOUSEHOLD_SIZE] => 3
+            [INCOME] => 11000
+            [EDUCATION] => College
+            [EMPLOYMENT] => Employed
+            [LOCATION] => purok 1 adja;jldajd
+        )
+
+)
+
+[03-Aug-2025 16:32:23 Europe/Berlin] Would send to Census API: Array
+(
+    [vintage] => 2022
+    [dataset] => ecnbasic
+    [values] => Array
+        (
+            [FIRST_NAME] => Archieval
+            [LAST_NAME] => adada
+            [AGE] => 13
+            [GENDER] => Male
+            [HOUSEHOLD_SIZE] => 5
+            [INCOME] => 0
+            [EDUCATION] => Elementary
+            [EMPLOYMENT] => Student
+            [LOCATION] => purok 1 dgashgdah
+        )
+
+)
+
+[03-Aug-2025 16:44:05 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\barangay\census.php:12
+Stack trace:
+#0 C:\xampp\htdocs\barangay\census.php(12): {closure}(8192, 'Constant FILTER...', 'C:\\xampp\\htdocs...', 12)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\census.php on line 12
+[04-Aug-2025 15:40:45 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:46:59 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[04-Aug-2025 15:49:04 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:49:05 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:49:06 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:49:06 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:49:06 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:49:06 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:49:06 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:51:35 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:51:36 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 15:51:38 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: include(sidebar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\barangay\analytics.php:218
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(218): {closure}(2, 'include(sidebar...', 'C:\\xampp\\htdocs...', 218)
+#1 C:\xampp\htdocs\barangay\analytics.php(218): include()
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 218
+[04-Aug-2025 15:51:41 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: include(sidebar.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\barangay\analytics.php:218
+Stack trace:
+#0 C:\xampp\htdocs\barangay\analytics.php(218): {closure}(2, 'include(sidebar...', 'C:\\xampp\\htdocs...', 218)
+#1 C:\xampp\htdocs\barangay\analytics.php(218): include()
+#2 {main}
+  thrown in C:\xampp\htdocs\barangay\analytics.php on line 218
+[04-Aug-2025 15:52:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "user_id" in C:\xampp\htdocs\barangay\settings.php:10
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(10): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 10)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 10
+[04-Aug-2025 16:11:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:289
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(289): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 289)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 289
+[04-Aug-2025 16:17:27 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:289
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(289): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 289)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 289
+[04-Aug-2025 16:19:12 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:126
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(126): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 126)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 126
+[04-Aug-2025 16:20:14 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[04-Aug-2025 16:20:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[04-Aug-2025 16:20:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[04-Aug-2025 16:20:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[04-Aug-2025 16:20:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[04-Aug-2025 16:20:27 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT user_id,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[04-Aug-2025 16:20:40 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT user_id,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[04-Aug-2025 16:21:45 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[04-Aug-2025 16:21:47 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[05-Aug-2025 14:15:33 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'email' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[05-Aug-2025 14:18:09 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'position' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[05-Aug-2025 14:18:11 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'position' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[05-Aug-2025 14:18:47 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'position' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[05-Aug-2025 14:18:49 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'position' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[05-Aug-2025 14:18:59 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'position' in 'field list' in C:\xampp\htdocs\barangay\login.php:9
+Stack trace:
+#0 C:\xampp\htdocs\barangay\login.php(9): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\login.php on line 9
+[05-Aug-2025 14:20:20 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $is_logged_in in C:\xampp\htdocs\barangay\settings.php:150
+Stack trace:
+#0 C:\xampp\htdocs\barangay\settings.php(150): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 150)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\settings.php on line 150
+[05-Aug-2025 14:27:20 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:05 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:50 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:50 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:51 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:51 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:51 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:51 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:55 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:56 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:28:56 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:29:30 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:29:31 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:29:31 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:29:31 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:29:50 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:32:07 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:128
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(128): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 128)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 128
+[05-Aug-2025 14:35:58 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:35:58 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:35:58 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:35:59 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:35:59 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:00 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:01 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:48 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:50 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:36:59 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:37:24 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 14:38:37 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[05-Aug-2025 15:03:32 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[06-Aug-2025 14:15:38 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[07-Aug-2025 06:34:47 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[07-Aug-2025 17:21:46 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:21:48 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:21:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:21:59 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:135
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(135): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 135)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 135
+[07-Aug-2025 17:30:10 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:30:14 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:30:14 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:30:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:30:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:30:15 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:12 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:12 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:12 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:13 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:13 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:48 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:49 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:54 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:54 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:54 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:32:54 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined variable $first_name in C:\xampp\htdocs\barangay\register.php:232
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(232): {closure}(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 232)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 232
+[07-Aug-2025 17:40:17 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:40:18 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:40:20 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:41:00 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:41:35 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:41:36 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:41:41 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:41:56 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 17:41:59 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 18:08:03 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 18:08:06 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[07-Aug-2025 18:39:35 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[14-Aug-2025 15:51:42 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[14-Aug-2025 16:00:23 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[14-Aug-2025 16:00:32 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[14-Aug-2025 16:00:34 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[22-Aug-2025 07:49:23 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[22-Aug-2025 07:49:24 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[31-Aug-2025 15:19:44 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "username" in C:\xampp\htdocs\barangay\register.php:77
+Stack trace:
+#0 C:\xampp\htdocs\barangay\register.php(77): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 77)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\register.php on line 77
+[31-Aug-2025 15:25:03 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[31-Aug-2025 15:25:11 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[31-Aug-2025 15:25:12 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[31-Aug-2025 15:25:35 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[31-Aug-2025 15:31:29 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[31-Aug-2025 15:31:39 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "export_format" in C:\xampp\htdocs\barangay\reports.php:83
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(83): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 83)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 83
+[31-Aug-2025 16:06:18 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[31-Aug-2025 16:13:57 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
+[31-Aug-2025 16:16:26 Europe/Berlin] PHP Fatal error:  Uncaught ErrorException: Undefined array key "purok" in C:\xampp\htdocs\barangay\reports.php:223
+Stack trace:
+#0 C:\xampp\htdocs\barangay\reports.php(223): {closure}(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 223)
+#1 {main}
+  thrown in C:\xampp\htdocs\barangay\reports.php on line 223
