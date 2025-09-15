@@ -113,12 +113,42 @@ try {
     $stmt = $conn->query("SELECT * FROM events ORDER BY event_date ASC");
     $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Get current month events for the calendar
-    $stmt = $conn->prepare("SELECT * FROM events 
-                           WHERE MONTH(event_date) = :month AND YEAR(event_date) = :year 
-                           ORDER BY event_date ASC");
-    $stmt->execute([':month' => $currentMonth, ':year' => $currentYear]);
-    $monthEvents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Fix: $monthEvents must be defined for calendar highlighting
+    $monthEvents = $events;
+
+    // --- Rank and filter top 3 predicted events for Upcoming Events ---
+    $predicted_titles = [
+        "Basketball League for the Youths",
+        "Volleyball Tournaments",
+        "Medical Check-ups",
+        "Vaccination Drives",
+        "Health and Nutrition Feeding Program",
+        "Distribution of Assistive Devices",
+        "Financial Assistance / Ayuda for PWDs",
+        "Financial Aid or Assistance for PWDs",
+        "Livelihood Training Programs",
+        "Preparations for Disasters or Calamities",
+        "Road Clearing Operations",
+        "Community Clean-Up Drives",
+        "Waste Management Programs"
+    ];
+
+    // Count predicted event occurrences
+    $predicted_counts = [];
+    foreach ($events as $event) {
+        if (in_array($event['title'], $predicted_titles)) {
+            $predicted_counts[$event['title']] = ($predicted_counts[$event['title']] ?? 0) + 1;
+        }
+    }
+
+    // Get top 3 predicted event titles by count
+    arsort($predicted_counts);
+    $top3_titles = array_slice(array_keys($predicted_counts), 0, 3);
+
+    // Filter events to only show top 3 predicted events in Upcoming Events
+    $top3_events = array_filter($events, function($event) use ($top3_titles) {
+        return in_array($event['title'], $top3_titles);
+    });
 
 } catch(PDOException $e) {
     die("Database error: " . $e->getMessage());
@@ -251,14 +281,14 @@ try {
                     </div>
                 </div>
                 
-                <div class="events-section">
+                <div class="events-section">    
                     <div class="events-list">
                         <h2>Upcoming Events</h2>
-                        <?php if (empty($events)): ?>
+                        <?php if (empty($top3_events)): ?>
                             <p>No upcoming events scheduled.</p>
                         <?php else: ?>
                             <ul>
-                                <?php foreach ($events as $event): ?>
+                                <?php foreach ($top3_events as $event): ?>
                                     <li>
                                         <div class="event-item">
                                             <div class="event-date">
