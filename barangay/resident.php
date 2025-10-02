@@ -8,28 +8,26 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error.log');
 
-// Check if public access is enabled
+// Session checks
 $public_access = $settings['public_access'] ?? 1;
-$is_logged_in = isLoggedIn();
+$is_logged_in  = isLoggedIn();
 
-$residents = [];
-$search_term = '';
+$residents     = [];
+$search_term   = $_GET['search'] ?? '';
 $selected_purok = isset($_GET['purok']) ? intval($_GET['purok']) : null;
 
-// Restrict puroks to Purok 1-7 only
+// Allowed puroks (1–7)
 $puroks = [];
 for ($i = 1; $i <= 7; $i++) {
-    $puroks[] = [
-        'purok_id' => $i,
-        'purok_name' => 'Purok ' . $i
-    ];
+    $puroks[] = ['purok_id' => $i, 'purok_name' => 'Purok ' . $i];
 }
 
-// Handle delete
+// Delete resident
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id']) && $is_logged_in) {
     $delete_id = intval($_POST['delete_id']);
     $stmt = $conn->prepare("DELETE FROM residents WHERE id = ?");
     $stmt->bind_param("i", $delete_id);
+
     if ($stmt->execute()) {
         echo "<script>alert('Resident deleted successfully.'); window.location.href='resident.php';</script>";
         exit();
@@ -39,45 +37,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id']) && $is_l
     $stmt->close();
 }
 
-// Handle search
+// Search + filter
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $search_term = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
-    
-    $query = "SELECT r.*, p.purok_name, p.purok_id as actual_purok_id 
-              FROM residents r
-              LEFT JOIN puroks p ON r.purok_id = p.purok_id
-              WHERE 1=1";
-    
+    $query  = "SELECT r.*, p.purok_name, p.purok_id AS actual_purok_id 
+               FROM residents r
+               LEFT JOIN puroks p ON r.purok_id = p.purok_id
+               WHERE 1=1";
+
     $params = [];
-    $types = '';
-    
+    $types  = '';
+
     if (!empty($search_term)) {
         $query .= " AND (r.first_name LIKE ? OR r.last_name LIKE ? OR r.address LIKE ?)";
-        $search_param = "%$search_term%";
-        $params = array_merge($params, [$search_param, $search_param, $search_param]);
-        $types .= 'sss';
+        $search_param = "%" . $conn->real_escape_string($search_term) . "%";
+        $params = [$search_param, $search_param, $search_param];
+        $types  = 'sss';
     }
-    
+
     if ($selected_purok) {
         $query .= " AND r.purok_id = ?";
         $params[] = $selected_purok;
-        $types .= 'i';
+        $types   .= 'i';
     }
-    
+
     $query .= " ORDER BY r.last_name, r.first_name";
-    
     $stmt = $conn->prepare($query);
-    
+
     if (!empty($params)) {
         $stmt->bind_param($types, ...$params);
     }
-    
+
     $stmt->execute();
-    $result = $stmt->get_result();
+    $result    = $stmt->get_result();
     $residents = $result->fetch_all(MYSQLI_ASSOC);
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,60 +92,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             transition: all 0.3s;
             margin-right: 10px;
         }
-        
-        .filter-container select:hover {
-            border-color: #1d3b71;
-        }
-        
+        .filter-container select:hover { border-color: #1d3b71; }
         .filter-container select:focus {
-            outline: none;
-            border-color: #1d3b71;
+            outline: none; border-color: #1d3b71;
             box-shadow: 0 0 0 2px rgba(29, 59, 113, 0.2);
         }
-        
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
+        .action-buttons { display: flex; gap: 10px; margin-bottom: 20px; }
         .action-buttons .add-resident-btn {
-            background-color: #1d3b71;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 14px;
+            background-color: #1d3b71; color: white; border: none;
+            padding: 10px 15px; border-radius: 4px; cursor: pointer;
+            display: flex; align-items: center; gap: 5px; font-size: 14px;
             transition: background-color 0.3s;
         }
-        
-        .action-buttons .add-resident-btn:hover {
-            background-color: #2c4d8a;
-        }
-        
-        .action-buttons .add-resident-btn i {
-            font-size: 14px;
-        }
-        
+        .action-buttons .add-resident-btn:hover { background-color: #2c4d8a; }
         .purok-badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 12px;
-            background-color: #e0e0e0;
-            color: #333;
-            font-size: 12px;
-            font-weight: 500;
+            display: inline-block; padding: 3px 8px;
+            border-radius: 12px; background-color: #e0e0e0;
+            color: #333; font-size: 12px; font-weight: 500;
         }
-        
-        .no-results {
-            text-align: center;
-            padding: 20px;
-            color: #666;
+        .no-results { text-align: center; padding: 20px; color: #666; }
+        /* Modal styles */
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0;
+                 width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .modal-content {
+            background: #fff; margin: 10% auto; padding: 20px;
+            border-radius: 8px; width: 500px; max-width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
+        .close-btn { float: right; font-size: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -159,20 +127,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <a href="index.php" class="logo-link">
-                <img src="logo.png" alt="Admin & Staff Logo" class="header-logo">
-            </a>
+            <a href="index.php" class="logo-link"><img src="logo.png" alt="Logo" class="header-logo"></a>
             <h2>A Web-based Barangay Demographic Profiling System</h2>
-            <?php if ($is_logged_in): ?>
-                <div class="welcome">
+            <div class="welcome">
+                <?php if ($is_logged_in): ?>
                     <p>Welcome, <?php echo htmlspecialchars($_SESSION['user']['full_name'] ?? 'User'); ?></p>
                     <a href="logout.php" class="logout-btn">Logout</a>
-                </div>
-            <?php else: ?>
-                <div class="welcome">
+                <?php else: ?>
                     <a href="login.php" class="login-btn">Staff Login</a>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
         </div>
         <nav class="sidebar-nav">
             <ul>
@@ -182,69 +146,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 <li><a href="predictive.php"><i class="fas fa-brain"></i> Predictive Models</a></li>
                 <li><a href="events.php"><i class="fas fa-calendar-alt"></i> Events</a></li>
                 <li><a href="reports.php"><i class="fas fa-file-alt"></i> Reports</a></li>
-                <?php if ($is_logged_in): ?>
-                    <li><a href="settings.php"><i class="fas fa-cog"></i> Settings</a></li>
-                <?php endif; ?>
+                <?php if ($is_logged_in): ?><li><a href="settings.php"><i class="fas fa-cog"></i> Settings</a></li><?php endif; ?>
             </ul>
         </nav>
     </div>
 
     <!-- Main Content -->
     <main class="main-content" style="margin-left: 280px; padding: 20px;">
-         <div class="resident-header">
+        <div class="resident-header">
             <h1><i class="fas fa-users"></i> Residents</h1>
         </div>
+
+        <!-- Search -->
         <div class="search-container">
             <form method="GET" action="resident.php">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" name="search" placeholder="Search residents..." 
+                    <input type="text" name="search" placeholder="Search residents..."
                            value="<?php echo htmlspecialchars($search_term); ?>">
                     <button type="submit">Search</button>
                 </div>
             </form>
         </div>
-        
+
+        <!-- Actions -->
         <div class="action-buttons">
+            <div class="filter-container">
+                <form method="GET" action="resident.php">
+                    <select name="purok" onchange="this.form.submit()">
+                        <option value="">All Puroks</option>
+                        <?php foreach ($puroks as $purok): ?>
+                            <option value="<?php echo $purok['purok_id']; ?>"
+                                <?php echo $selected_purok == $purok['purok_id'] ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($purok['purok_name']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="hidden" name="search" value="<?php echo htmlspecialchars($search_term); ?>">
+                </form>
+            </div>
             <?php if ($is_logged_in): ?>
-                <div class="filter-container">
-                    <form method="GET" action="resident.php">
-                        <select name="purok" onchange="this.form.submit()">
-                            <option value="">All Puroks</option>
-                            <?php foreach ($puroks as $purok): ?>
-                                <option value="<?php echo $purok['purok_id']; ?>" 
-                                    <?php echo $selected_purok == $purok['purok_id'] ? 'selected' : ''; ?>>
-                                    <?php echo htmlspecialchars($purok['purok_name']); ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                        <input type="hidden" name="search" value="<?php echo htmlspecialchars($search_term); ?>">
-                    </form>
-                </div>
-                
                 <button class="add-resident-btn" onclick="window.location.href='census.php'">
-                    <i class="fas fa-user-plus"></i>
-                    Add Resident
+                    <i class="fas fa-user-plus"></i> Add Resident
                 </button>
-            
-            <?php else: ?>
-                <div class="filter-container">
-                    <form method="GET" action="resident.php">
-                        <select name="purok" onchange="this.form.submit()">
-                            <option value="">All Puroks</option>
-                            <?php foreach ($puroks as $purok): ?>
-                                <option value="<?php echo $purok['purok_id']; ?>" 
-                                    <?php echo $selected_purok == $purok['purok_id'] ? 'selected' : ''; ?>>
-                                    <?php echo htmlspecialchars($purok['purok_name']); ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                        <input type="hidden" name="search" value="<?php echo htmlspecialchars($search_term); ?>">
-                    </form>
-                </div>
             <?php endif; ?>
         </div>
-        
+
+        <!-- Residents Table -->
         <div class="resident-table-container">
             <table class="resident-table">
                 <thead>
@@ -254,7 +202,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                         <th>Age</th>
                         <th>Gender</th>
                         <th>Purok</th>
-                        <th>Household No.</th>
                         <?php if ($is_logged_in): ?><th>Actions</th><?php endif; ?>
                     </tr>
                 </thead>
@@ -266,30 +213,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                                 <td><?php echo htmlspecialchars($resident['first_name'] . ' ' . $resident['last_name']); ?></td>
                                 <td><?php echo calculateAge($resident['birthdate']); ?></td>
                                 <td><?php echo htmlspecialchars($resident['gender']); ?></td>
-                                <td>
-                                    <span class="purok-badge">
-                                        <?php echo htmlspecialchars($resident['purok_name'] ?? 'N/A'); ?>
-                                    </span>
-                                </td>
-                                <td><?php echo htmlspecialchars($resident['household_id'] ?? 'N/A'); ?></td>
+                                <td><span class="purok-badge"><?php echo htmlspecialchars($resident['purok_name'] ?? 'N/A'); ?></span></td>
                                 <?php if ($is_logged_in): ?>
-                                <td class="actions">
-                                    <a href="edit-resident.php?id=<?php echo $resident['id']; ?>" class="action-btn edit" title="Update">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <form method="POST" action="resident.php" onsubmit="return confirm('Are you sure you want to delete this resident?');" style="display:inline;">
-                                        <input type="hidden" name="delete_id" value="<?php echo $resident['id']; ?>">
-                                        <button type="submit" class="action-btn delete" title="Delete Resident">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </td>
+                                    <td class="actions">
+                                        <a href="edit-resident.php?id=<?php echo $resident['id']; ?>" class="action-btn edit" title="Update"><i class="fas fa-edit"></i></a>
+                                        <a href="javascript:void(0);" class="action-btn view" title="View Census Answers"
+                                           onclick="showAnswers(<?php echo $resident['id']; ?>, '<?php echo htmlspecialchars($resident['first_name'] . ' ' . $resident['last_name']); ?>')">
+                                           <i class="fas fa-eye"></i></a>
+                                        <form method="POST" action="resident.php" onsubmit="return confirm('Are you sure you want to delete this resident?');" style="display:inline;">
+                                            <input type="hidden" name="delete_id" value="<?php echo $resident['id']; ?>">
+                                            <button type="submit" class="action-btn delete" title="Delete Resident"><i class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                    </td>
                                 <?php endif; ?>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="<?php echo $is_logged_in ? 7 : 6; ?>" class="no-results">
+                            <td colspan="<?php echo $is_logged_in ? 6 : 5; ?>" class="no-results">
                                 <?php echo empty($search_term) && empty($selected_purok) ? 'No residents found in database' : 'No matching residents found'; ?>
                             </td>
                         </tr>
@@ -299,5 +240,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         </div>
     </main>
 </div>
+
+<!-- Census Answers Modal -->
+<div id="answersModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h4 id="residentName"></h4>
+    <div id="answersContainer"><!-- Answers will load here --></div>
+  </div>
+</div>
+
+<script>
+function showAnswers(id, name) {
+    document.getElementById("residentName").innerText = name;
+    document.getElementById("answersContainer").innerHTML = "<p>Loading answers...</p>";
+    fetch("get_answers.php?id=" + id)
+        .then(response => response.text())
+        .then(data => { document.getElementById("answersContainer").innerHTML = data; })
+        .catch(() => { document.getElementById("answersContainer").innerHTML = "<p>Failed to load answers.</p>"; });
+    document.getElementById("answersModal").style.display = "block";
+}
+function closeModal() {
+    document.getElementById("answersModal").style.display = "none";
+}
+</script>
 </body>
 </html>
