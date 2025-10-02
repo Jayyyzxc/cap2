@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'config.php';
 require_once 'functions.php';
 
@@ -8,38 +9,40 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/error.log');
 
-// Check if public access is enabled
-$public_access = $settings['public_access'] ?? 1;
 $is_logged_in = isLoggedIn();
 
-// Get events from database
+// ===== Load settings (system_settings table) =====
+$settings = [];
+$res = $conn->query("SELECT * FROM system_settings LIMIT 1");
+if ($res && $res->num_rows > 0) {
+    $settings = $res->fetch_assoc();
+}
+$public_access = $settings['public_access'] ?? 1;
+
+// ===== Load events (use `id` instead of event_id) =====
 $events = [];
-$event_query = "SELECT event_id, title FROM events ORDER BY title";
+$event_query = "SELECT id, title FROM events ORDER BY title";
 $result = $conn->query($event_query);
 if ($result) {
     $events = $result->fetch_all(MYSQLI_ASSOC);
 }
 
-// Process form submission
-$forecast_data = [];
-// Map census event interests to event titles (adjust as needed)
+// ===== Event Interest Mapping from census_submissions =====
 $event_interest_map = [
-    'sports_interest' => 'Sports Event',
-    'health_interest' => 'Health Event',
-    'nutrition_interest' => 'Nutrition Program',
-    'assistive_interest' => 'Assistive Devices',
-    'livelihood_interest' => 'Livelihood Training',
-    'aid_interest' => 'Financial Aid',
-    'disaster_interest' => 'Disaster Preparedness',
+    'sports_interest'        => 'Sports Event',
+    'health_interest'        => 'Health Event',
+    'nutrition_interest'     => 'Nutrition Program',
+    'assistive_interest'     => 'Assistive Devices',
+    'livelihood_interest'    => 'Livelihood Training',
+    'aid_interest'           => 'Financial Aid',
+    'disaster_interest'      => 'Disaster Preparedness',
     'road_clearing_interest' => 'Road Clearing',
-    'cleanup_interest' => 'Clean-up Drive',
-    'waste_mgmt_interest' => 'Waste Management',
+    'cleanup_interest'       => 'Clean-up Drive',
+    'waste_mgmt_interest'    => 'Waste Management',
 ];
 
-// For each event type, get count of "Yes" from census_submissions
-$auto_forecasts = [];
+// ===== Collect counts for each event interest =====
 $interest_counts = [];
-// Gather counts for each event interest
 foreach ($event_interest_map as $interest_col => $event_name) {
     $stmt = $conn->prepare("SELECT COUNT(*) as yes_count FROM census_submissions WHERE $interest_col = 'Yes'");
     $stmt->execute();
@@ -47,23 +50,22 @@ foreach ($event_interest_map as $interest_col => $event_name) {
     $row = $result ? $result->fetch_assoc() : ['yes_count' => 0];
     $interest_counts[] = [
         'interest_col' => $interest_col,
-        'event_name' => $event_name,
-        'yes_count' => (int)$row['yes_count']
+        'event_name'   => $event_name,
+        'yes_count'    => (int)$row['yes_count']
     ];
 }
-// Sort by yes_count descending and take top 3
-usort($interest_counts, function($a, $b) {
-    return $b['yes_count'] <=> $a['yes_count'];
-});
+
+// ===== Sort by yes_count and get top 3 =====
+usort($interest_counts, fn($a, $b) => $b['yes_count'] <=> $a['yes_count']);
 $top_interests = array_slice($interest_counts, 0, 3);
-$auto_forecasts = [];
-// If Show Top 3 Events button is pressed, ignore event selection
+
+// ===== Process Forecast Selection =====
 $show_top3 = isset($_POST['show_top3']);
-$selected_event = ($show_top3) ? '' : (isset($_POST['event']) ? $_POST['event'] : '');
-// Get selected time period, default to 6 if not set or invalid
+$selected_event = ($show_top3) ? '' : ($_POST['event'] ?? '');
 $valid_periods = ['3', '6', '12'];
 $selected_period = (isset($_POST['time_period']) && in_array($_POST['time_period'], $valid_periods)) ? (int)$_POST['time_period'] : 6;
-// Build a map of event_name => yes_count for all event interests
+
+$auto_forecasts = [];
 $all_interest_counts = [];
 foreach ($event_interest_map as $interest_col => $event_name) {
     $stmt = $conn->prepare("SELECT COUNT(*) as yes_count FROM census_submissions WHERE $interest_col = 'Yes'");
@@ -72,44 +74,69 @@ foreach ($event_interest_map as $interest_col => $event_name) {
     $row = $result ? $result->fetch_assoc() : ['yes_count' => 0];
     $all_interest_counts[$event_name] = (int)$row['yes_count'];
 }
+
+// ===== Helper: detect risk level =====
+function detectRisk($current, $previous) {
+    if ($previous === null) return "Stable";
+    if ($current < $previous * 0.8) return "Declining interest";
+    if ($current > $previous * 1.2) return "Overcrowding risk";
+    if ($current < 5) return "Low turnout risk";
+    return "Stable";
+}
+
 if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event])) {
-    // Show only the selected event, use selected period
+    // Forecast for selected event
     $base = $all_interest_counts[$selected_event];
     $months = $selected_period;
     $labels = [];
     $values = [];
+    $risks = [];
+    $previous = null;
     for ($i = 1; $i <= $months; $i++) {
         $labels[] = "Month $i";
-        $values[] = max(0, $base + rand(-5, 10));
+        $forecast = round($base * (1 + ($i * 0.05)));
+        $values[] = $forecast;
+        $risks[] = [
+            'month' => "Month $i",
+            'value' => $forecast,
+            'risk'  => detectRisk($forecast, $previous)
+        ];
+        $previous = $forecast;
     }
     $auto_forecasts[] = [
-        'labels' => $labels,
-        'values' => $values,
-        'event_name' => $selected_event,
-        'time_period' => $months
+        'labels'        => $labels,
+        'values'        => $values,
+        'risk_analysis' => $risks,
+        'event_name'    => $selected_event,
+        'time_period'   => $months
     ];
 } else {
-    // Show top 3 events by yes_count, use selected period
-    $interest_counts_sorted = $interest_counts;
-    usort($interest_counts_sorted, function($a, $b) {
-        return $b['yes_count'] <=> $a['yes_count'];
-    });
-    $top3 = array_slice($interest_counts_sorted, 0, 3);
-    foreach ($top3 as $interest) {
+    // Forecast for top 3 events
+    foreach ($top_interests as $interest) {
         $base = $interest['yes_count'];
         $event_name = $interest['event_name'];
         $months = $selected_period;
         $labels = [];
         $values = [];
+        $risks = [];
+        $previous = null;
         for ($i = 1; $i <= $months; $i++) {
             $labels[] = "Month $i";
-            $values[] = max(0, $base + rand(-5, 10));
+            $forecast = round($base * (1 + ($i * 0.05)));
+            $values[] = $forecast;
+            $risks[] = [
+                'month' => "Month $i",
+                'value' => $forecast,
+                'risk'  => detectRisk($forecast, $previous)
+            ];
+            $previous = $forecast;
         }
         $auto_forecasts[] = [
-            'labels' => $labels,
-            'values' => $values,
-            'event_name' => $event_name,
-            'time_period' => $months
+            'labels'        => $labels,
+            'values'        => $values,
+            'risk_analysis' => $risks,
+            'event_name'    => $event_name,
+            'time_period'   => $months
         ];
     }
 }
@@ -177,7 +204,7 @@ if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event
                 <form method="POST" action="predictive.php">
                     <div class="form-group">
                         <label for="event"><i class="fas fa-calendar-alt"></i> Select Event</label>
-                        <select id="event" name="event" <?php if (isset($_POST['show_top3'])) { ?><?php } else { echo 'required'; } ?>>
+                        <select id="event" name="event" <?php if (!$show_top3) echo 'required'; ?>>
                             <option value="">-- Select an Event --</option>
                             <?php foreach ($event_interest_map as $interest_col => $event_name): ?>
                                 <option value="<?php echo htmlspecialchars($event_name); ?>" <?php if ($selected_event === $event_name) echo 'selected'; ?>>
@@ -189,11 +216,11 @@ if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event
                     
                     <div class="form-group">
                         <label for="time_period"><i class="fas fa-clock"></i> Select Time Period</label>
-                        <select id="time_period" name="time_period" <?php if (isset($_POST['show_top3'])) { ?><?php } else { echo 'required'; } ?>>
+                        <select id="time_period" name="time_period" <?php if (!$show_top3) echo 'required'; ?>>
                             <option value="">-- Select Time Period --</option>
-                            <option value="3">3 Months</option>
-                            <option value="6">6 Months</option>
-                            <option value="12">1 Year</option>
+                            <option value="3" <?php if ($selected_period == 3) echo 'selected'; ?>>3 Months</option>
+                            <option value="6" <?php if ($selected_period == 6) echo 'selected'; ?>>6 Months</option>
+                            <option value="12" <?php if ($selected_period == 12) echo 'selected'; ?>>1 Year</option>
                         </select>
                     </div>
                     
@@ -213,15 +240,31 @@ if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event
                     <div class="forecast-results" style="padding-bottom: 20px;">
                         <h2>Forecast Results for <?php echo htmlspecialchars($forecast['event_name']); ?></h2>
                         <p>Time Period: <?php echo $forecast['time_period']; ?> Months</p>
+
+                        <!-- Chart -->
                         <div class="chart-container" style="padding-bottom: 20px;">
                             <canvas id="forecastChart<?php echo $idx; ?>"></canvas>
                         </div>
+                        <!-- Removed risk table -->
                     </div>
                 <?php endforeach; ?>
+
+                <!-- Chart.js Risk-aware rendering -->
                 <script>
                 <?php foreach ($auto_forecasts as $idx => $forecast): ?>
-                    const forecastCtx<?php echo $idx; ?> = document.getElementById('forecastChart<?php echo $idx; ?>').getContext('2d');
-                    new Chart(forecastCtx<?php echo $idx; ?>, {
+                    const ctx<?php echo $idx; ?> = document.getElementById('forecastChart<?php echo $idx; ?>').getContext('2d');
+
+                    // Assign colors by risk
+                    const pointColors<?php echo $idx; ?> = <?php echo json_encode(array_map(function($row) {
+                        if (strpos($row['risk'], 'Low turnout') !== false) return 'blue';
+                        if (strpos($row['risk'], 'Overcrowding') !== false) return 'red';
+                        if (strpos($row['risk'], 'Declining') !== false) return 'orange';
+                        return 'green';
+                    }, $forecast['risk_analysis'])); ?>;
+
+                    const riskLabels<?php echo $idx; ?> = <?php echo json_encode(array_column($forecast['risk_analysis'], 'risk')); ?>;
+
+                    new Chart(ctx<?php echo $idx; ?>, {
                         type: 'line',
                         data: {
                             labels: <?php echo json_encode($forecast['labels']); ?>,
@@ -232,7 +275,11 @@ if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event
                                 borderColor: 'rgba(29, 59, 113, 1)',
                                 borderWidth: 2,
                                 tension: 0.4,
-                                fill: true
+                                fill: true,
+                                pointBackgroundColor: pointColors<?php echo $idx; ?>,
+                                pointBorderColor: pointColors<?php echo $idx; ?>,
+                                pointRadius: 6,
+                                pointHoverRadius: 8
                             }]
                         },
                         options: {
@@ -242,28 +289,24 @@ if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event
                                 title: {
                                     display: true,
                                     text: 'Event Attendance Forecast',
-                                    font: {
-                                        size: 16,
-                                        weight: 'bold'
-                                    }
+                                    font: { size: 16, weight: 'bold' }
                                 },
-                                legend: {
-                                    position: 'top',
+                                legend: { position: 'top' },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return context.dataset.label + ': ' + context.formattedValue;
+                                        }
+                                    }
                                 }
                             },
                             scales: {
                                 y: {
                                     beginAtZero: true,
-                                    title: {
-                                        display: true,
-                                        text: 'Number of Attendees'
-                                    }
+                                    title: { display: true, text: 'Number of Attendees' }
                                 },
                                 x: {
-                                    title: {
-                                        display: true,
-                                        text: 'Time Period'
-                                    }
+                                    title: { display: true, text: 'Time Period' }
                                 }
                             }
                         }
