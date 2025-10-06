@@ -3,157 +3,106 @@ session_start();
 require_once 'config.php';
 require_once 'functions.php';
 
-// Error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/error.log');
 
 $is_logged_in = isLoggedIn();
 
-// ===== Load settings (system_settings table) =====
-$settings = [];
-$res = $conn->query("SELECT * FROM system_settings LIMIT 1");
-if ($res && $res->num_rows > 0) {
-    $settings = $res->fetch_assoc();
-}
-$public_access = $settings['public_access'] ?? 1;
+// Try to fetch PAGASA real data
+$pagasa_url = "https://api.pagasa.dost.gov.ph/weather/pampanga";
+$weather_data = @json_decode(file_get_contents($pagasa_url), true);
 
-// ===== Load events (use `id` instead of event_id) =====
-$events = [];
-$event_query = "SELECT id, title FROM events ORDER BY title";
-$result = $conn->query($event_query);
-if ($result) {
-    $events = $result->fetch_all(MYSQLI_ASSOC);
-}
-
-// ===== Event Interest Mapping from census_submissions =====
-$event_interest_map = [
-    'sports_interest'        => 'Sports Event',
-    'health_interest'        => 'Health Event',
-    'nutrition_interest'     => 'Nutrition Program',
-    'assistive_interest'     => 'Assistive Devices',
-    'livelihood_interest'    => 'Livelihood Training',
-    'aid_interest'           => 'Financial Aid',
-    'disaster_interest'      => 'Disaster Preparedness',
-    'road_clearing_interest' => 'Road Clearing',
-    'cleanup_interest'       => 'Clean-up Drive',
-    'waste_mgmt_interest'    => 'Waste Management',
-];
-
-// ===== Collect counts for each event interest =====
-$interest_counts = [];
-foreach ($event_interest_map as $interest_col => $event_name) {
-    $stmt = $conn->prepare("SELECT COUNT(*) as yes_count FROM census_submissions WHERE $interest_col = 'Yes'");
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result ? $result->fetch_assoc() : ['yes_count' => 0];
-    $interest_counts[] = [
-        'interest_col' => $interest_col,
-        'event_name'   => $event_name,
-        'yes_count'    => (int)$row['yes_count']
+// ===== Fallback simulated data if API not reachable =====
+if (!$weather_data || !isset($weather_data['rainfall'])) {
+    $weather_data = [
+        "rainfall" => [200, 250, 300, 400, 450, 500, 550, 480, 350, 250, 200, 150],
+        "temperature" => [30, 31, 33, 34, 35, 36, 35, 34, 33, 32, 31, 30]
     ];
 }
+$months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-// ===== Sort by yes_count and get top 3 =====
-usort($interest_counts, fn($a, $b) => $b['yes_count'] <=> $a['yes_count']);
-$top_interests = array_slice($interest_counts, 0, 3);
+// ===== Calculate risks =====
+$risk_data = [];
+for ($i=0; $i<12; $i++) {
+    $month = $months[$i];
+    $rain = $weather_data['rainfall'][$i] ?? 0;
+    $temp = $weather_data['temperature'][$i] ?? 0;
 
-// ===== Process Forecast Selection =====
-$show_top3 = isset($_POST['show_top3']);
-$selected_event = ($show_top3) ? '' : ($_POST['event'] ?? '');
-$valid_periods = ['3', '6', '12'];
-$selected_period = (isset($_POST['time_period']) && in_array($_POST['time_period'], $valid_periods)) ? (int)$_POST['time_period'] : 6;
+    $dengue_risk  = min(100, ($rain / 500) * 100);
+    $flood_risk   = min(100, ($rain / 550) * 100);
+    $heat_risk    = max(0, (($temp - 30) / 10) * 100);
+    $drought_risk = max(0, (1 - ($rain / 500)) * 100);
+    $overall = round(($dengue_risk + $flood_risk + $heat_risk + $drought_risk) / 4);
 
-$auto_forecasts = [];
-$all_interest_counts = [];
-foreach ($event_interest_map as $interest_col => $event_name) {
-    $stmt = $conn->prepare("SELECT COUNT(*) as yes_count FROM census_submissions WHERE $interest_col = 'Yes'");
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result ? $result->fetch_assoc() : ['yes_count' => 0];
-    $all_interest_counts[$event_name] = (int)$row['yes_count'];
-}
-
-// ===== Helper: detect risk level =====
-function detectRisk($current, $previous) {
-    if ($previous === null) return "Stable";
-    if ($current < $previous * 0.8) return "Declining interest";
-    if ($current > $previous * 1.2) return "Overcrowding risk";
-    if ($current < 5) return "Low turnout risk";
-    return "Stable";
-}
-
-if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event])) {
-    // Forecast for selected event
-    $base = $all_interest_counts[$selected_event];
-    $months = $selected_period;
-    $labels = [];
-    $values = [];
-    $risks = [];
-    $previous = null;
-    for ($i = 1; $i <= $months; $i++) {
-        $labels[] = "Month $i";
-        $forecast = round($base * (1 + ($i * 0.05)));
-        $values[] = $forecast;
-        $risks[] = [
-            'month' => "Month $i",
-            'value' => $forecast,
-            'risk'  => detectRisk($forecast, $previous)
-        ];
-        $previous = $forecast;
-    }
-    $auto_forecasts[] = [
-        'labels'        => $labels,
-        'values'        => $values,
-        'risk_analysis' => $risks,
-        'event_name'    => $selected_event,
-        'time_period'   => $months
+    $risk_data[] = [
+        'month' => $month,
+        'rainfall' => $rain,
+        'temperature' => $temp,
+        'dengue' => round($dengue_risk, 1),
+        'flood' => round($flood_risk, 1),
+        'heat' => round($heat_risk, 1),
+        'drought' => round($drought_risk, 1),
+        'overall' => $overall
     ];
-} else {
-    // Forecast for top 3 events
-    foreach ($top_interests as $interest) {
-        $base = $interest['yes_count'];
-        $event_name = $interest['event_name'];
-        $months = $selected_period;
-        $labels = [];
-        $values = [];
-        $risks = [];
-        $previous = null;
-        for ($i = 1; $i <= $months; $i++) {
-            $labels[] = "Month $i";
-            $forecast = round($base * (1 + ($i * 0.05)));
-            $values[] = $forecast;
-            $risks[] = [
-                'month' => "Month $i",
-                'value' => $forecast,
-                'risk'  => detectRisk($forecast, $previous)
-            ];
-            $previous = $forecast;
-        }
-        $auto_forecasts[] = [
-            'labels'        => $labels,
-            'values'        => $values,
-            'risk_analysis' => $risks,
-            'event_name'    => $event_name,
-            'time_period'   => $months
-        ];
-    }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predictive Models - Barangay Profiling System</title>
-    <link rel="stylesheet" href="predictive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<title>Predictive Forecast - Barangay Profiling System</title>
+<link rel="stylesheet" href="predictive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+/* Center containers */
+.graph-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.graph-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #1d3b71;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center; align-items: center;
+}
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    animation: zoomIn 0.3s ease;
+}
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.modal-header { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+.close-btn { float: right; cursor: pointer; color: #666; font-size: 20px; }
+.close-btn:hover { color: red; }
+.risk-item { margin: 8px 0; }
+.risk-item span { font-weight: bold; }
+</style>
 </head>
 <body>
 <div class="dashboard-container">
-    <!-- Sidebar -->
+    <!-- === Sidebar (unchanged) === -->
     <div class="sidebar">
         <div class="sidebar-header">
             <a href="index.php" class="logo-link">
@@ -162,7 +111,7 @@ if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event
             <h2>A Web-based Barangay Demographic Profiling System</h2>
             <?php if ($is_logged_in): ?>
                 <div class="welcome">
-                    <p>Welcome, <?php echo htmlspecialchars($_SESSION['user']['full_name'] ?? 'User'); ?></p>
+                    <p>Welcome, <?= htmlspecialchars($_SESSION['user']['full_name'] ?? 'User'); ?></p>
                     <a href="logout.php" class="logout-btn">Logout</a>
                 </div>
             <?php else: ?>
@@ -186,136 +135,144 @@ if (!$show_top3 && $selected_event && isset($all_interest_counts[$selected_event
         </nav>
     </div>
 
-    <!-- Main Content -->
+    <!-- === Main Content === -->
     <div class="main-content">
-        <?php if (!$is_logged_in && !$public_access): ?>
-            <div class="access-denied">
-                <i class="fas fa-lock"></i>
-                <h2>Public Access Disabled</h2>
-                <p>Please login to view this page</p>
-                <a href="login.php" class="login-btn">Login</a>
+        <h1><i class="fas fa-brain"></i> Predictive Models</h1>
+
+        <!-- ===== Weather Risk Forecast Graph ===== -->
+        <div class="graph-container">
+            <h2>🌦 Weather Risk Forecast</h2>
+            <canvas id="riskChart"></canvas>
+        </div>
+
+        <!-- Modal for weather risk -->
+        <div id="riskModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeRiskModal">&times;</span>
+                <div id="riskModalBody"></div>
             </div>
-        <?php else: ?>
-            <div class="dashboard-header">
-                <h1><i class="fas fa-brain"></i> Predictive Analytics</h1>
+        </div>
+
+        <!-- ===== Event Suitability Forecast Graph ===== -->
+        <div class="graph-container">
+            <h2>📅 Event Suitability Forecast</h2>
+            <canvas id="eventChart"></canvas>
+        </div>
+
+        <!-- Modal for event recommendations -->
+        <div id="eventModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeEventModal">&times;</span>
+                <div id="eventModalBody"></div>
             </div>
-
-            <div class="predictive-form-container">
-                <form method="POST" action="predictive.php">
-                    <div class="form-group">
-                        <label for="event"><i class="fas fa-calendar-alt"></i> Select Event</label>
-                        <select id="event" name="event" <?php if (!$show_top3) echo 'required'; ?>>
-                            <option value="">-- Select an Event --</option>
-                            <?php foreach ($event_interest_map as $interest_col => $event_name): ?>
-                                <option value="<?php echo htmlspecialchars($event_name); ?>" <?php if ($selected_event === $event_name) echo 'selected'; ?>>
-                                    <?php echo htmlspecialchars($event_name); ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="time_period"><i class="fas fa-clock"></i> Select Time Period</label>
-                        <select id="time_period" name="time_period" <?php if (!$show_top3) echo 'required'; ?>>
-                            <option value="">-- Select Time Period --</option>
-                            <option value="3" <?php if ($selected_period == 3) echo 'selected'; ?>>3 Months</option>
-                            <option value="6" <?php if ($selected_period == 6) echo 'selected'; ?>>6 Months</option>
-                            <option value="12" <?php if ($selected_period == 12) echo 'selected'; ?>>1 Year</option>
-                        </select>
-                    </div>
-                    
-                    <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
-                        <button type="submit" name="generate_forecast" class="generate-btn">
-                            <i class="fas fa-chart-line"></i> Generate Forecast
-                        </button>
-                        <button type="submit" name="show_top3" class="generate-btn">
-                            <i class="fas fa-star"></i> Show Top 3 Events
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <?php if (!empty($auto_forecasts)): ?>
-                <?php foreach ($auto_forecasts as $idx => $forecast): ?>
-                    <div class="forecast-results" style="padding-bottom: 20px;">
-                        <h2>Forecast Results for <?php echo htmlspecialchars($forecast['event_name']); ?></h2>
-                        <p>Time Period: <?php echo $forecast['time_period']; ?> Months</p>
-
-                        <!-- Chart -->
-                        <div class="chart-container" style="padding-bottom: 20px;">
-                            <canvas id="forecastChart<?php echo $idx; ?>"></canvas>
-                        </div>
-                        <!-- Removed risk table -->
-                    </div>
-                <?php endforeach; ?>
-
-                <!-- Chart.js Risk-aware rendering -->
-                <script>
-                <?php foreach ($auto_forecasts as $idx => $forecast): ?>
-                    const ctx<?php echo $idx; ?> = document.getElementById('forecastChart<?php echo $idx; ?>').getContext('2d');
-
-                    // Assign colors by risk
-                    const pointColors<?php echo $idx; ?> = <?php echo json_encode(array_map(function($row) {
-                        if (strpos($row['risk'], 'Low turnout') !== false) return 'blue';
-                        if (strpos($row['risk'], 'Overcrowding') !== false) return 'red';
-                        if (strpos($row['risk'], 'Declining') !== false) return 'orange';
-                        return 'green';
-                    }, $forecast['risk_analysis'])); ?>;
-
-                    const riskLabels<?php echo $idx; ?> = <?php echo json_encode(array_column($forecast['risk_analysis'], 'risk')); ?>;
-
-                    new Chart(ctx<?php echo $idx; ?>, {
-                        type: 'line',
-                        data: {
-                            labels: <?php echo json_encode($forecast['labels']); ?>,
-                            datasets: [{
-                                label: 'Predicted Attendance',
-                                data: <?php echo json_encode($forecast['values']); ?>,
-                                backgroundColor: 'rgba(29, 59, 113, 0.2)',
-                                borderColor: 'rgba(29, 59, 113, 1)',
-                                borderWidth: 2,
-                                tension: 0.4,
-                                fill: true,
-                                pointBackgroundColor: pointColors<?php echo $idx; ?>,
-                                pointBorderColor: pointColors<?php echo $idx; ?>,
-                                pointRadius: 6,
-                                pointHoverRadius: 8
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                title: {
-                                    display: true,
-                                    text: 'Event Attendance Forecast',
-                                    font: { size: 16, weight: 'bold' }
-                                },
-                                legend: { position: 'top' },
-                                tooltip: {
-                                    callbacks: {
-                                        label: function(context) {
-                                            return context.dataset.label + ': ' + context.formattedValue;
-                                        }
-                                    }
-                                }
-                            },
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                    title: { display: true, text: 'Number of Attendees' }
-                                },
-                                x: {
-                                    title: { display: true, text: 'Time Period' }
-                                }
-                            }
-                        }
-                    });
-                <?php endforeach; ?>
-                </script>
-            <?php endif; ?>
-        <?php endif; ?>
+        </div>
     </div>
 </div>
+
+<script>
+const months = <?= json_encode(array_column($risk_data, 'month')); ?>;
+const dengue = <?= json_encode(array_column($risk_data, 'dengue')); ?>;
+const flood = <?= json_encode(array_column($risk_data, 'flood')); ?>;
+const heat = <?= json_encode(array_column($risk_data, 'heat')); ?>;
+const drought = <?= json_encode(array_column($risk_data, 'drought')); ?>;
+const rainfall = <?= json_encode(array_column($risk_data, 'rainfall')); ?>;
+const temp = <?= json_encode(array_column($risk_data, 'temperature')); ?>;
+
+// ===== WEATHER RISK CHART =====
+const ctx1 = document.getElementById('riskChart').getContext('2d');
+const riskChart = new Chart(ctx1, {
+    type: 'line',
+    data: {
+        labels: months,
+        datasets: [
+            { label: 'Dengue/Flood Risk', data: dengue, borderColor: '#FF6384', backgroundColor: 'rgba(255,99,132,0.2)', tension: 0.4, fill: true },
+            { label: 'Heat Risk', data: heat, borderColor: '#FFCE56', backgroundColor: 'rgba(255,206,86,0.2)', tension: 0.4, fill: true },
+            { label: 'Drought Risk', data: drought, borderColor: '#4BC0C0', backgroundColor: 'rgba(75,192,192,0.2)', tension: 0.4, fill: true }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'top' }, title: { display: true, text: 'Weather-Based Monthly Risk Forecast' } },
+        scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Risk Level (%)' } } },
+        onClick: (e) => {
+            const points = riskChart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+            if (points.length) showRiskModal(points[0].index);
+        }
+    }
+});
+
+// ===== WEATHER MODAL =====
+const riskModal = document.getElementById('riskModal');
+const closeRiskModal = document.getElementById('closeRiskModal');
+const riskModalBody = document.getElementById('riskModalBody');
+closeRiskModal.onclick = () => riskModal.style.display = 'none';
+window.onclick = (e) => { if (e.target === riskModal) riskModal.style.display = 'none'; };
+
+function showRiskModal(i) {
+    const rain = rainfall[i], t = temp[i];
+    let risk = "Stable", rec = "Normal monitoring.";
+    if (rain > 450) { risk = "🚨 Flood / Dengue Risk"; rec = "Clean drainage and prepare flood kits."; }
+    else if (t > 35) { risk = "🔥 Heat Stroke Risk"; rec = "Advise hydration, avoid long outdoor exposure."; }
+    else if (rain < 150 && t > 33) { risk = "🌾 Drought Risk"; rec = "Encourage water conservation and planting."; }
+    riskModalBody.innerHTML = `
+        <div class="modal-header">${months[i]} Risk Details</div>
+        <div class="risk-item"><span>Rainfall:</span> ${rain} mm</div>
+        <div class="risk-item"><span>Temperature:</span> ${t} °C</div>
+        <div class="risk-item"><span>Main Risk:</span> ${risk}</div>
+        <div class="risk-item"><span>Recommendation:</span> ${rec}</div>
+    `;
+    riskModal.style.display = 'flex';
+}
+
+// ===== EVENT SUITABILITY CHART =====
+const ctx2 = document.getElementById('eventChart').getContext('2d');
+const suitability = months.map((_, i) => {
+    const r = rainfall[i], t = temp[i];
+    if (r > 400) return 90;
+    if (t >= 33 && r < 200) return 80;
+    if (r > 300 && t < 33) return 75;
+    if (r < 150) return 65;
+    return 70;
+});
+const eventChart = new Chart(ctx2, {
+    type: 'line',
+    data: { labels: months, datasets: [{ label: 'Event Suitability', data: suitability, borderColor: '#1D3B71', backgroundColor: 'rgba(29,59,113,0.2)', tension: 0.4, fill: true }] },
+    options: {
+        responsive: true,
+        plugins: { legend: { position: 'top' }, title: { display: true, text: 'Monthly Event Suitability Forecast' } },
+        onClick: (e) => {
+            const points = eventChart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+            if (points.length) showEventModal(points[0].index);
+        }
+    }
+});
+
+// ===== EVENT MODAL =====
+const eventModal = document.getElementById('eventModal');
+const closeEventModal = document.getElementById('closeEventModal');
+const eventModalBody = document.getElementById('eventModalBody');
+closeEventModal.onclick = () => eventModal.style.display = 'none';
+window.onclick = (e) => { if (e.target === eventModal) eventModal.style.display = 'none'; };
+
+function showEventModal(i) {
+    const month = months[i], rain = rainfall[i], t = temp[i];
+    let events = [];
+    if (t >= 33 && rain < 200)
+        events = ["🏀 Basketball League", "🏐 Volleyball Tournament", "💪 Livelihood Training"];
+    else if (rain > 350 && t < 34)
+        events = ["💉 Vaccination Drive", "🩺 Medical Check-ups", "🍲 Feeding Program"];
+    else if (rain > 400)
+        events = ["⚠️ Disaster Preparedness", "🚜 Road Clearing", "🌊 Flood Awareness"];
+    else if (rain < 150 && t < 33)
+        events = ["🌿 Clean-Up Drive", "🚮 Waste Management", "💰 Financial Aid for PWDs"];
+    else
+        events = ["🤝 Livelihood & Social Support", "🩺 Health & Wellness Initiative"];
+    eventModalBody.innerHTML = `
+        <div class="modal-header">${month} Recommended Events</div>
+        <ul>${events.map(e => `<li>${e}</li>`).join('')}</ul>
+    `;
+    eventModal.style.display = 'flex';
+}
+</script>
 </body>
 </html>
