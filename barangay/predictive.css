@@ -259,6 +259,35 @@
     margin-bottom: 20px;
 }
 
+.risk-table {
+    margin-top: 15px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.risk-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.risk-table th, .risk-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.risk-table th {
+    background: var(--primary-blue);
+    color: #fff;
+}
+
+.risk-table td:nth-child(3) {
+    font-weight: bold;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-content {
