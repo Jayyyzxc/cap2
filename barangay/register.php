@@ -120,7 +120,7 @@
 
         <!-- 🏘️ BARANGAY INFORMATION -->
         <div class="form-section">
-            <h2><i class="fas fa-city"></i> Barangay Information</h2>
+            <h2>Barangay Information</h2>
 
             <div class="form-row">
                 <div class="form-group"><label>Barangay Name</label><input type="text" placeholder="Enter Barangay Name"></div>
@@ -129,7 +129,7 @@
             </div>
 
             <!-- 📞 Contact Info -->
-            <h3>📞 Barangay Contact Information</h3>
+            <h3>Barangay Contact Information</h3>
             <div class="form-row">
                 <div class="form-group"><label>Barangay Hall Address</label><input type="text" placeholder="Enter Barangay Hall Address"></div>
             </div>
@@ -142,7 +142,7 @@
             <hr>
 
             <!-- 🏡 Barangay Profile -->
-            <h3>🏡 Barangay Profile</h3>
+            <h3>Barangay Profile</h3>
             <div class="form-row">
                 <div class="form-group"><label>Total Population</label><input type="number" placeholder="Enter total population"></div>
                 <div class="form-group"><label>Total Households</label><input type="number" placeholder="Enter total households"></div>
@@ -159,7 +159,7 @@
             <hr>
 
             <!-- 🌊 Disaster and Risk Management -->
-            <h3>🌊 Disaster and Risk Management</h3>
+            <h3>Disaster and Risk Management</h3>
             <div class="form-row">
                 <div class="form-group"><label>Is your barangay flood-prone?</label>
                     <select><option value="">Select</option><option>Yes</option><option>No</option></select>
@@ -174,7 +174,7 @@
             <hr>
 
             <!-- 💰 Barangay Budget and Finance -->
-            <h3>💰 Barangay Budget and Finance</h3>
+            <h3>Barangay Budget and Finance</h3>
             <div class="form-row">
                 <div class="form-group"><label>Annual Budget (₱)</label><input type="number" placeholder="Enter annual budget"></div>
             </div>
@@ -248,3 +248,4 @@ function generatePurokFields() {
 
 </body>
 </html>
+
